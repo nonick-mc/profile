@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -5,6 +6,10 @@ import { ThemeProvider } from '@/components/theme-provider';
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
 });
+
+export const metadata: Metadata = {
+  title: 'NoNICK',
+};
 
 export default function RootLayout({
   children,

@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    typedEnv: true,
+  },
+  images: {
+    remotePatterns: [new URL('https://cdn.nonick-mc.com/**')],
+  },
 };
 
 export default nextConfig;

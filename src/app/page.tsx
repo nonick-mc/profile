@@ -1,65 +1,78 @@
-import Image from "next/image";
+import { Avatar } from '@heroui/react';
+import { SiDiscord, SiGithub, SiX, SiYoutube } from '@icons-pack/react-simple-icons';
+import { AnimatedImage } from '@/components/animated-image';
+import { ContributionsGraph } from '@/components/contributions-graph';
+import { FadeUp } from '@/components/fade-up';
+import { SocialCard } from '@/components/social-card';
+import { getContributions } from '@/lib/github';
 
-export default function Home() {
+export const revalidate = 3600;
+
+export default async function Page() {
+  const contributions = await getContributions('nonick-mc');
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className='max-w-lg mx-auto px-8'>
+      <div className='pt-32 flex flex-col gap-6'>
+        <FadeUp delay={100}>
+          <Avatar size='lg'>
+            <Avatar.Image src='https://github.com/nonick-mc.png' />
+          </Avatar>
+        </FadeUp>
+        <FadeUp delay={200}>
+          <div className='flex flex-col gap-0.5'>
+            <h1 className='font-extrabold text-lg'>NoNICK</h1>
+            <p className='text-muted'>インディーゲームとTypeScriptが好きな学生。Vim練習中📚</p>
+          </div>
+        </FadeUp>
+      </div>
+      <div className='pt-12 pb-32 grid grid-cols-2 auto-rows-fr gap-6'>
+        <FadeUp delay={300} className='col-span-2'>
+          <SocialCard
+            name='GitHub'
+            username='nonick-mc'
+            icon={<SiGithub />}
+            href='https://github.com/nonick-mc'
+            className='col-span-2'
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <div className='flex justify-end'>
+              <ContributionsGraph contributions={contributions} />
+            </div>
+          </SocialCard>
+        </FadeUp>
+        <FadeUp delay={400}>
+          <SocialCard
+            name='YouTube'
+            username='@nonick_mc'
+            icon={<SiYoutube className='fill-red-500' />}
+            href='https://www.youtube.com/@nonick_mc'
+          />
+        </FadeUp>
+        <FadeUp delay={500}>
+          <SocialCard
+            name='X / Twitter'
+            username='@nonick_mc'
+            icon={<SiX />}
+            href='https://x.com/nonick_mc'
+          />
+        </FadeUp>
+        <FadeUp delay={600}>
+          <SocialCard
+            name='Discord'
+            username='@nonick_mc'
+            icon={<SiDiscord className='fill-[#5865F2]' />}
+            href='https://discord.gg/nonick-mc'
+          />
+        </FadeUp>
+        <FadeUp delay={700} className='flex items-end justify-end'>
+          <AnimatedImage
+            src='https://cdn.nonick-mc.com/e1e6eb8488ffb3bda6db0c661e3a3156.png'
+            width={150}
+            height={150}
+            alt='nonick is sleeping with a creeper.'
+          />
+        </FadeUp>
+      </div>
+    </main>
   );
 }
