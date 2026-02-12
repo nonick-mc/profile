@@ -11,7 +11,7 @@ export default async function Page() {
   const contributions = await getContributions('nonick-mc');
 
   return (
-    <main className='max-w-lg mx-auto px-8'>
+    <main className='max-w-xl mx-auto px-8'>
       <div className='pt-32 flex flex-col gap-6'>
         <FadeUp delay={100}>
           <Avatar size='lg'>
@@ -25,7 +25,7 @@ export default async function Page() {
           </div>
         </FadeUp>
       </div>
-      <div className='pt-12 pb-32 grid grid-cols-2 auto-rows-fr gap-6'>
+      <div className='pt-12 pb-32 grid grid-cols-2 sm:auto-rows-fr gap-6'>
         <FadeUp delay={300} className='col-span-2'>
           <SocialCard
             name='GitHub'
@@ -59,7 +59,7 @@ export default async function Page() {
           <SocialCard
             name='Discord'
             username='@nonick_mc'
-            icon={<SiDiscord className='fill-[#5865F2]' />}
+            icon={<SiDiscord className='fill-[#5865f2]' />}
             href='https://discord.gg/nonick-mc'
           />
         </FadeUp>
