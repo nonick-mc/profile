@@ -1,6 +1,5 @@
 import { Avatar } from '@heroui/react';
-import { SiDiscord, SiGithub, SiX, SiYoutube } from '@icons-pack/react-simple-icons';
-import { AnimatedImage } from '@/components/animated-image';
+import { SiBluesky, SiDiscord, SiGithub, SiX, SiYoutube } from '@icons-pack/react-simple-icons';
 import { ContributionsGraph } from '@/components/contributions-graph';
 import { FadeUp } from '@/components/fade-up';
 import { SocialCard } from '@/components/social-card';
@@ -64,12 +63,12 @@ export default async function Page() {
             href='https://discord.gg/nonick-mc'
           />
         </FadeUp>
-        <FadeUp delay={700} className='flex items-end justify-end'>
-          <AnimatedImage
-            src='https://cdn.nonick-mc.com/e1e6eb8488ffb3bda6db0c661e3a3156.png'
-            width={150}
-            height={150}
-            alt='nonick is sleeping with a creeper.'
+        <FadeUp delay={700}>
+          <SocialCard
+            name='Bluesky'
+            username='@nonick-mc.com'
+            icon={<SiBluesky className='fill-[#1185fe]' />}
+            href='https://bsky.app/profile/nonick-mc.com'
           />
         </FadeUp>
       </div>
