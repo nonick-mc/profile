@@ -25,7 +25,7 @@ export default async function Page() {
           </div>
         </FadeUp>
       </div>
-      <div className='pt-12 pb-32 grid grid-cols-2 sm:auto-rows-fr gap-6'>
+      <div className='pt-12 pb-32 grid grid-cols-2 auto-rows-fr gap-6'>
         <FadeUp delay={300} className='col-span-2'>
           <SocialCard
             name='GitHub'
