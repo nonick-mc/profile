@@ -3,15 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
     "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "format": "biome format --write"
   },
   "dependencies": {
     "@better-fetch/fetch": "^1.1.21",
@@ -19,7 +15,6 @@
     "@heroui/styles": "3.0.0-beta.6",
     "@icons-pack/react-simple-icons": "^13.13.0",
     "@octokit/graphql": "^9.0.3",
-    "@opennextjs/cloudflare": "^1.19.8",
     "dayjs": "^1.11.20",
     "motion": "^12.38.0",
     "next": "16.2.6",
@@ -34,8 +29,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "tailwindcss": "^4.2.4",
-    "typescript": "^5.9.3",
-    "wrangler": "^4.90.0"
+    "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@11.0.9"
 }
