@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import { discordEmbedJson } from '@/lib/discord-embed';
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
@@ -47,6 +48,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ja' suppressHydrationWarning>
+      <head>
+        {/* biome-ignore lint/correctness/useUniqueElementIds: Discordが要求する固定ID */}
+        <script
+          id='discord:component-embed'
+          type='application/json'
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: '<' is escaped in discordEmbedJson
+          dangerouslySetInnerHTML={{ __html: discordEmbedJson }}
+        />
+      </head>
       <body className={`${notoSansJP.className} antialiased`}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           {children}
